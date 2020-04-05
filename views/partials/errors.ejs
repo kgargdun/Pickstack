@@ -1,0 +1,14 @@
+<% if (typeof errors !== 'undefined') {  %>
+<%  errors.forEach(function(error){  %>
+<div class="alert alert-warning col-lg-6" role="alert">
+     <%= error %> 
+</div>
+<% })}  %>
+
+
+<% if (typeof msgs !== 'undefined') {  %>
+    <%  msgs.forEach(function(msg){  %>
+    <div class="alert alert-success col-lg-6" role="alert">
+         <%= msg %> 
+    </div>
+    <% })}  %>
