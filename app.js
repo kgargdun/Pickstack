@@ -7,6 +7,9 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+errors = [];
+msgs = [];
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -44,25 +47,47 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.get("/", function (req, res) {
-    res.render("home.ejs");
+    if (req.isAuthenticated())
+        res.render("dashboard");
+    else {
+        errors.length = 0;
+        msgs.length = 0;
+        res.render("home.ejs");
+    }
 })
 
 
 app.get("/login", function (req, res) {
-    res.render("login.ejs");
+    if (req.isAuthenticated())
+        res.render("dashboard");
+    else {
+        errors.length = 0;
+        msgs.length = 0;
+        res.render("login.ejs");
+
+    }
+
 })
 
 app.get("/register", function (req, res) {
-    res.render("register.ejs");
+    if (req.isAuthenticated())
+        res.render("dashboard");
+    else {
+        errors.length = 0;
+        msgs.length = 0;
+        res.render("register.ejs");
+    }
 })
+
+
 
 
 app.post("/register", function (req, res) {
     const username = req.body.username;
     const password = req.body.password;
     const rePassword = req.body.repassword;
-    const errors = [];
-    const msgs = [];
+    errors.length = 0;
+    msgs.length = 0;
 
     if (!username || !password || !rePassword) {
         errors.push("Missing fields");
@@ -83,13 +108,11 @@ app.post("/register", function (req, res) {
     else {
         User.register({ username: req.body.username }, req.body.password, function (err, user) {
             if (err) {
-                if (err.name === "UserExistsError")
-                {
+                if (err.name === "UserExistsError") {
                     errors.push("User Already Exists");
                     res.render("register", { errors });
                 }
-                else
-                {
+                else {
                     errors.push("Some unexpected error occured! Try again");
                     res.render("register", { errors });
                 }
@@ -104,33 +127,39 @@ app.post("/register", function (req, res) {
 
 })
 
-app.get("/secrets", function (req, res) {
+app.get("/dashboard", function (req, res) {
     if (req.isAuthenticated()) {
-        res.render("secrets");
+        res.render("dashboard");
     }
     else {
         res.redirect("/login");
     }
 });
 
-app.post("/login", function (req, res) {
-    const user = new User(
-        {
-            username: req.body.username,
-            password: req.body.password
-        }
-    )
-    req.login(user, function (err) {
-        if (err)
-            console.log(err)
-        else {
-            passport.authenticate("local")(req, res, function () {
-                res.redirect("/secrets");
-            })
 
+app.post('/login', function (req, res, next) {
+    errors.length = 0;
+    msgs.length = 0;
+    passport.authenticate('local', function (err, user, info) {
+        if (err) {
+            console.log(err);
+            return next(err);
         }
-    })
-})
+        if (!user) {
+            errors.push("Username and password don't match");
+            return res.render('login', { errors });
+        }
+        req.logIn(user, function (err) {
+            if (err) {
+                return next(err);
+            }
+            console.log(user);
+            return res.redirect("/dashboard");
+        });
+    })(req, res, next);
+});
+
+
 
 app.get("/logout", function (req, res) {
     req.logout();
