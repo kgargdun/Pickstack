@@ -13,7 +13,7 @@ msgs = [];
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 
@@ -98,7 +98,7 @@ app.post("/register", function (req, res) {
     if (password.length < 6) {
         errors.push("Password should be atleast 6 characters long");
     }
-    console.log(errors);
+    // console.log(errors);
     if (errors.length > 0) {
         res.render("register",
             {
@@ -127,8 +127,9 @@ app.post("/register", function (req, res) {
 
 })
 
-app.get("/dashboard", function (req, res) {
+app.get("/dashboard/:userName", function (req, res) {
     if (req.isAuthenticated()) {
+        console.log(req.user);
         res.render("dashboard");
     }
     else {
@@ -153,8 +154,7 @@ app.post('/login', function (req, res, next) {
             if (err) {
                 return next(err);
             }
-            console.log(user);
-            return res.redirect("/dashboard");
+            return res.redirect("/dashboard/"+user.username);
         });
     })(req, res, next);
 });
