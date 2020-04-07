@@ -1,6 +1,28 @@
 
+html
+{
+  height:100%;
+}
 body {
-  background-color: #000;
+  background-color: #E8ECEF;
+}
+
+body.dashboard{
+
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  
+}
+img{
+  display:none;
+}
+
+.dashboard .heading
+{
+  text-align: center;
+  margin : 3rem auto 1.5rem;
 }
 
 .centered {
@@ -10,7 +32,7 @@ body {
 
 .nav-item
 {
-  padding: 0 1rem 0 1rem;
+  padding: 0 1.4rem 0 1.4rem;
 }
 
 .alt
@@ -21,4 +43,8 @@ body {
 .alert
 {
   display:block;
+}
+
+.change{
+  margin: 3rem auto;
 }

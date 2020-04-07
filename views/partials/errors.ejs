@@ -1,14 +1,56 @@
 <% if (typeof errors !== 'undefined') {  %>
 <%  errors.forEach(function(error){  %>
+<%  if(ln==="en") {   %>
 <div class="alert alert-warning col-lg-6" role="alert">
-     <%= error %> 
+     <%= error.substring(1) %>
 </div>
+<%  }else{ %>
+<% if(error.substring(0,1)==="1") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     अलिखित पैरामीटर
+</div>
+<% } %>
+<% if(error.substring(0,1)==="2") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     पासवर्ड मैच नहीं करते
+</div>
+<% } %>
+
+<% if(error.substring(0,1)==="3") {  %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     पासवर्ड कम से कम 6 अक्षर लंबा होना चाहिए
+</div>
+<% } %>
+
+<% if(error.substring(0,1)==="4") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     उपयोगकर्ता पहले से मौजूद है
+</div>
+<% } %>
+
+<% if(error.substring(0,1)==="5"){%>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     कुछ अप्रत्याशित त्रुटि हुई! पुनः प्रयास करें
+</div>
+<% } %>
+
+<% if(error.substring(0,1)==="6") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     उपयोगकर्ता नाम और पासवर्ड मेल नहीं खाते
+</div>
+<% } %>
+<% }%>
 <% })}  %>
 
 
 <% if (typeof msgs !== 'undefined') {  %>
-    <%  msgs.forEach(function(msg){  %>
-    <div class="alert alert-success col-lg-6" role="alert">
-         <%= msg %> 
-    </div>
-    <% })}  %>
+<%  msgs.forEach(function(msg){  %>
+
+<div class="alert alert-success col-lg-6" role="alert">
+     <%  if(ln==="en") {   %>
+     <%= msg %>
+     <% } else{ %>
+     आपने रजिस्टर कर लिया है! अपने खाते में प्रवेश करें
+     <% } %>
+</div>
+<% })}  %>

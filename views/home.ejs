@@ -3,11 +3,18 @@
   <div class="container">
     <i class="fas fa-camera fa-6x"></i>
     <h1 class="display-3">Pic Stack</h1>
+
+    <% if(ln==="en") { %>
     <p class="lead">Upload your pics!</p>
     <hr>
     <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
     <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
-
+    <% } else { %>
+    <p class="lead" lang="hi">अपनी तस्वीरें यहां अपलोड करें</p>
+    <hr>
+    <a class="btn btn-light btn-lg" href="/register" role="button" lang="hi">रजिस्टर करें</a>
+    <a class="btn btn-dark btn-lg" href="/login" role="button" lang="hi">लॉगइन करें</a>
+    <% } %>
   </div>
 </div>
 

@@ -17,7 +17,17 @@
     </button>
   
     <div class="collapse navbar-collapse" id="topper">
+      <% if(ln==="en") { %>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/english">English</a>
+            <a class="dropdown-item" href="/hindi">Hindi</a>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="../register">Register </a>
         </li>
@@ -28,5 +38,27 @@
           <a class="nav-link" href="#">About</a>
         </li>
       </ul>
+    <% }else { %>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a lang="hi" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          भाषा
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" lang="hi" href="/english">अंग्रेज़ी</a>
+            <a class="dropdown-item" lang="hi" href="/hindi">हिन्दी</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../register" lang="hi">रजिस्टर करें </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../login" lang="hi">लॉगइन करें</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="#" lang="hi">जानकारी</a>
+        </li>
+      </ul>
+    <% } %>
     </div>
   </nav>
