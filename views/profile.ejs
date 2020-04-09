@@ -1,7 +1,21 @@
 <%- include('partials/dbheader') %>
-<body class="dashboard" >
-<a href="/change">change password</a>
-<a href="/My_activity">change password</a>
+
+<body class="profile">
+    <h1 class="heading">Hey <%= userObj.username %> What's on your mind? </h1>
+    <div class="row">
+        <div class="col-lg-4">
+            <a class="link" href="/change">Change password</a>
+        </div>
+        <div class="col-lg-4">
+            <a class="link" href="/activity">My Acitvity</a>
+        </div>
+        <div class="col-lg-4">
+            <a class="link" href="/pictures">Upload Pics</a>
+        </div>
+        
+    </div>
 
 
-<%- include('partials/footer') %>gi
+
+
+    <%- include('partials/footer') %>

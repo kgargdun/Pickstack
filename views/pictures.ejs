@@ -1,32 +1,34 @@
 <%- include('partials/dbheader') %>
-
-<body class="dashboard">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<body class="pictures">
 
   <div class="container">
     <div class="row">
       <div class="col-md-6 m-auto">
-        <h1 class="text-center display-4 my-4">Mongo File Uploads</h1>
+        <h1 class="text-center display-4 my-4">Upload your Pics</h1>
         <form action="/upload" method="POST" enctype="multipart/form-data">
           <div class="custom-file mb-3">
             <input type="file" name="file" id="file" class="custom-file-input">
-            <label for="file" class="custom-file-label">Choose an image</label>
+            <label for="file" class="custom-file-label">Choose an image and then click submit!</label>
           </div>
           <input type="submit" value="Submit" class="btn btn-primary btn-block">
         </form>
         <hr>
         <% if(files){ %>
         <% files.forEach(function(file) { %>
+        <% if(file.filename===userObj._id.toString()) {   %>
         <div class="card card-body mb-3">
           <% if(file.isImage) { %>
-          <%= file.filename %>
-          <img src="image<%= file.filename %>" alt="Not able to display">
+          <img class="image" src="image<%= file.filename %>" alt="Not able to display">
           <% } else { %>
-          Error ! Not an image
+          <span style="color:red" >Error!  Not an image</span>
           <% } %>
           <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
             <button class="btn btn-danger btn-block mt-4">Delete</button>
           </form>
         </div>
+        <% } %>
         <% }) %>
         <% } else { %>
         <p>No files to show</p>
@@ -34,6 +36,11 @@
       </div>
     </div>
   </div>
-
+  <script>
+    $('#file').on('change',function(){
+        var fileName = $(this).val();
+        $(this).next('.custom-file-label').html(fileName);
+    })
+</script>
 
   <%- include('partials/footer') %>

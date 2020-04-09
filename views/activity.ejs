@@ -1,0 +1,29 @@
+<%- include('partials/dbheader') %>
+<div class="activity">
+    <h1 class="heading"> My Activity</h1>
+    <div class="row row-main">
+        <div class="col-lg-6">
+            <h3 class="sub"> Login Activity</h3>
+            <% userObj.activity.forEach(function(activity) { %>
+            <div class="row">
+                <%=  activity.toLocaleString() %>
+            </div>
+            <% }) %>
+        </div>
+        <div class="col-lg-6">
+            <h3 class="sub"> Upload Activity</h3>
+            <% userObj.upActivity.forEach(function(activity) { %>
+            <div class="row">
+                <%=  activity.toLocaleString() %>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<%- include('partials/footer') %>

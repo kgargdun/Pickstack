@@ -16,10 +16,55 @@ body.dashboard{
   
 }
 
+
 .dashboard .heading
 {
+  font-size: 500%;
   text-align: center;
   margin : 3rem auto 1.5rem;
+  font-family: fantasy;
+}
+.dashboard .btn
+{
+  position: absolute;
+  width: 20%;
+  height:3rem;
+  bottom:10rem;
+  margin-left: 40%;
+  margin-right: 40%;
+  font-size: 150%;
+
+
+}
+
+.profile .heading
+{
+  font-size: 450%;
+  text-align: center;
+  margin: 3rem auto 0;
+  font-family: 'Pacifico', cursive;
+}
+
+.profile .row
+{
+  margin: 10rem 15rem 0;
+  text-align:center;
+  font-size: 200%;
+}
+.profile .link:link,.profile .link:visited
+{
+ 
+    background-color: #000;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  
+}
+.profile .link:hover
+{
+  background-color:#CDB8B4;
 }
 
 .centered {
@@ -45,3 +90,48 @@ body.dashboard{
 .change{
   margin: 3rem auto;
 }
+.change .heading
+{
+  text-align:center;
+}
+
+
+.pictures .image
+{
+  height:100%;
+  width:100%
+}
+
+
+.activity .heading{
+  font-size: 450%;
+  text-align: center;
+  margin: 3rem auto 0;
+  font-family: 'Pacifico', cursive;
+
+}
+.activity .row{
+  margin: 0.5rem 25% 0 25%;
+}
+.activity .row-main{
+  margin-top: 5rem;
+}
+
+.activity .sub
+{
+  text-align: center;
+  margin-bottom:2rem;
+}
+
+.forgot .heading{
+  text-align: center;
+  margin: 3rem auto 3rem;
+  font-size: 200%;
+
+}
+
+.forgot .mail
+{
+  margin: 0 auto;
+}
+

@@ -1,46 +1,28 @@
 <%- include('partials/dbheader') %>
+<body>
+    <div class="change">
+        <h1 class="heading">Change Password</h1>
+        <%- include('partials/errors') %>
+        <div class="row">
+            <div class="col-lg-6 change">
+                <div class="card">
+                    <div class="card-body">
 
-<body class="dashboard">
-<% if(ln==="en") { %>
-<h1 class="heading">Change Password</h1>
-<% }else {%>
-<h1 class="heading">पासवर्ड बदलें</h1>
-<% } %>
-
-<%- include('partials/errors') %>
-<div class="row">
-    <div class="col-lg-6 change">
-        <div class="card">
-            <div class="card-body">
-                <% if(ln==="en") { %>
-                <form action="/change" method="POST">
-                    <div class="form-group">
-                        <label for="email">New Password</label>
-                        <input type="password" class="form-control" name="newpassword">
+                        <form action="/change" method="POST">
+                            <div class="form-group">
+                                <label for="email">New Password</label>
+                                <input type="password" class="form-control" name="newpassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Confirm New Password</label>
+                                <input type="password" class="form-control" name="renewpassword">
+                            </div>
+                            <button type="submit" class="btn btn-dark">Change Password</button>
+                            <br>
+                        </form>
+                        <%- include('partials/footer') %>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Confirm New Password</label>
-                        <input type="password" class="form-control" name="renewpassword">
-                    </div>
-                    <button type="submit" class="btn btn-dark">Change Password</button>
-                    <br>
-                </form>
-                <% } else { %>
-                <form action="/change" method="POST">
-                    <div class="form-group">
-                        <label for="email" lang="hi">नया पासवर्ड</label>
-                        <input type="password" class="form-control" name="newpassword">
-                    </div>
-                    <div class="form-group">
-                        <label for="password" lang="hi">नए पासवर्ड की पुष्टि करें</label>
-                        <input type="password" class="form-control" name="renewpassword">
-                    </div>
-                    <button type="submit" class="btn btn-dark" lang="hi">पासवर्ड बदलें</button>
-                    <br>
-                </form>
-                <% } %>
-                <%- include('partials/footer') %>
+                </div>
             </div>
         </div>
     </div>
-</div>
