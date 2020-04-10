@@ -39,18 +39,42 @@
      उपयोगकर्ता नाम और पासवर्ड मेल नहीं खाते
 </div>
 <% } %>
+
+<% if(error.substring(0,1)==="7") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     इस ईमेल का कोई खाता मौजूद नहीं है
+</div>
+<% } %>
+
+<% if(error.substring(0,1)==="8") { %>
+<div lang="hi" class="alert alert-warning col-lg-6" role="alert">
+     पासवर्ड रीसेट टोकन समाप्त हो गया
+</div>
+<% } %>
 <% }%>
 <% })}  %>
 
 
 <% if (typeof msgs !== 'undefined') {  %>
-<%  msgs.forEach(function(msg){  %>
+<%  for(var i=0;i<msgs.length;i++){ %>
 
-<div class="alert alert-success col-lg-6" role="alert">
-     <%  if(ln==="en") {   %>
-     <%= msg %>
-     <% } else{ %>
+<%  if(ln==="en") {   %>
+     <div lang="hi" class="alert alert-success col-lg-6" role="alert">
+          <%= msgs[i].substring(1) %>
+     </div>
+
+<% } else{  %>
+
+<% if(msgs[i].substring(0,1)==="1") { %>
+<div lang="hi" class="alert alert-success col-lg-6" role="alert">
      आपने रजिस्टर कर लिया है! अपने खाते में प्रवेश करें
-     <% } %>
 </div>
-<% })}  %>
+<% } %>
+<% if(msgs[i].substring(0,1)==="2") { %>
+<div lang="hi" class="alert alert-success col-lg-6" role="alert">
+     आगे के निर्देशों के साथ एक ई-मेल भेजा गया है।
+</div>
+<% } %>
+<% } %>
+<% } %>
+<% }  %>

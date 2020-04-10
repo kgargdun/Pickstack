@@ -1,7 +1,9 @@
 
 html
 {
-  height:100%;
+  min-height: 400px;
+  margin-bottom: 100px;
+  clear: both;
 }
 body {
   background-color: #E8ECEF;
@@ -51,7 +53,7 @@ body.dashboard{
   text-align:center;
   font-size: 200%;
 }
-.profile .link:link,.profile .link:visited
+.profile .links:link,.profile .links:visited
 {
  
     background-color: #000;
@@ -62,7 +64,7 @@ body.dashboard{
     display: inline-block;
   
 }
-.profile .link:hover
+.profile .links:hover
 {
   background-color:#CDB8B4;
 }
@@ -88,20 +90,20 @@ body.dashboard{
 }
 
 .change{
-  margin: 3rem auto;
-}
-.change .heading
-{
-  text-align:center;
+  margin: 2rem 1rem;
 }
 
 
 .pictures .image
 {
   height:100%;
-  width:100%
+  width:100%;
 }
 
+.picture .card
+{
+  margin-bottom: 10rem;
+}
 
 .activity .heading{
   font-size: 450%;
@@ -124,14 +126,52 @@ body.dashboard{
 }
 
 .forgot .heading{
-  text-align: center;
-  margin: 3rem auto 3rem;
+  
+  margin: 3rem 2rem 3rem;
   font-size: 200%;
 
 }
 
 .forgot .mail
 {
-  margin: 0 auto;
+  margin: 0 0 0 3rem;
 }
 
+footer 
+{
+  padding-top: 0.5rem;
+  height:10%;
+  width:100%;
+  position: fixed;
+  bottom: 0px;
+  text-align: center;
+  background-color:#C8C8C8;
+  color:#fff;
+}
+
+footer .link:link,footer .link:visited
+{
+  color:grey;
+  padding: 0 1rem;
+}
+footer .link:hover
+{
+  color:#fff;
+  text-decoration:none;
+  
+}
+
+
+.about
+{
+  margin: 5rem auto 0;
+  text-align:center;
+}
+
+.about h1
+{
+  font-size: 500%;
+  text-align: center;
+  margin : 3rem auto 1.5rem;
+  font-family: fantasy;
+}

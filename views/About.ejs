@@ -1,64 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<%- include('partials/header') %>
 
-<head>
-  <meta charset="utf-8">
-  <title>Picstack</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="styles.css">
-</head>
+<div class="about">
+    <h1>
+        About
+    </h1>
+    <p>
+        Pickstack has been developed to learn and showcase some simple features!
+        Get registered today and upload your fav pics to keep a record.    
+    </p>
+    
+</div>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Picstack</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topper" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="topper">
-      <% if(ln==="en") { %>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Language
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/english">English</a>
-            <a class="dropdown-item" href="/hindi">Hindi</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../register">Register </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../login">Login</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#">About</a>
-        </li>
-      </ul>
-    <% }else { %>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a lang="hi" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          भाषा
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" lang="hi" href="/english">अंग्रेज़ी</a>
-            <a class="dropdown-item" lang="hi" href="/hindi">हिन्दी</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../register" lang="hi">रजिस्टर करें </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="../login" lang="hi">लॉगइन करें</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link" href="#" lang="hi">जानकारी</a>
-        </li>
-      </ul>
-    <% } %>
-    </div>
-  </nav>
+
+<%- include('partials/footer') %>

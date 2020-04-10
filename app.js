@@ -42,7 +42,10 @@ app.use(function (req, res, next) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-const mongoURL = "mongodb://localhost:27017/SecretsDB";
+
+const dbpass=process.env.DBPASS;
+
+const mongoURL = "mongodb+srv://admin-kaustubhgarg:"+dbpass+"@cluster0-aegjo.mongodb.net/PicsDB";
 
 mongoose.connect(mongoURL,
     {
@@ -158,7 +161,7 @@ app.post("/register", function (req, res) {
                 }
             }
             else {
-                msgs.push("You have registered! Login to your account");
+                msgs.push("1You have registered! Login to your account");
                 res.render("login", { msgs });
             }
         });
@@ -194,6 +197,8 @@ app.get("/change", function (req, res) {
     if (req.isAuthenticated()) {
         userObj = {};
         userObj = req.user;
+        errors.length = 0;
+        msgs.length = 0;
         res.render("change", { userObj });
     }
     else {
@@ -208,10 +213,10 @@ app.post("/change", function (req, res) {
         userObj = {};
         userObj = req.user;
         if (req.body.newpassword !== req.body.renewpassword) {
-            errors.push("2Passwords don't Match");
+            errors.push(" Passwords don't Match");
         }
         if (req.body.newpassword.length < 6) {
-            errors.push("3Password should be atleast 6 characters long");
+            errors.push(" Password should be atleast 6 characters long");
         }
         if (errors.length > 0) {
             res.render("change", errors)
@@ -370,7 +375,7 @@ app.delete('/files/:id', (req, res) => {
 app.get('/forgot', function (req, res) {
     errors.length = 0;
     msgs.length = 0;
-    res.render('forgot', { errors });
+    res.render('forgot', {ln});
 });
 
 app.post('/forgot', function (req, res, next) {
@@ -417,7 +422,7 @@ app.post('/forgot', function (req, res, next) {
             };
             smtpTransport.sendMail(mailOptions, function (err) {
                 console.log('mail sent');
-                msgs.push('An e-mail has been sent to ' + user.username + ' with further instructions.');
+                msgs.push('2An e-mail has been sent to ' + user.username + ' with further instructions.');
                 done(err, 'done');
             });
         }

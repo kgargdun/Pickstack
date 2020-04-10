@@ -17,11 +17,11 @@
           <form action="/login" method="POST">
             <div class="form-group">
               <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
+              <input type="email" class="form-control" name="username" placeholder="inkers@com">
             </div>
             <div class="form-group">
               <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password" placeholder="inkers">
             </div>
             <button type="submit" class="btn btn-dark">Login</button>
           </form>
@@ -29,11 +29,11 @@
           <form action="/login" method="POST">
             <div class="form-group">
               <label for="email" lang="hi">ई-मेल</label>
-              <input type="email" class="form-control" name="username">
+              <input type="email" class="form-control" name="username"  placeholder="inkers@com">
             </div>
             <div class="form-group">
               <label for="password" lang="hi">पासवर्ड</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password" placeholder="inkers">
             </div>
             <button type="submit" class="btn btn-dark" lang="hi">लॉगइन करें</button>
           </form>
@@ -47,6 +47,7 @@
   <a class="btn btn-warning btn alt" href="/forgot">Forgot Password?</a>
   <% } else { %>
   <a class="btn btn-info btn-sm alt" href="register" lang="hi">पंजीकृत नहीं? रजिस्टर करें</a>
+  <a class="btn btn-warning btn alt" href="/forgot" lang="hi">पासवर्ड भूल गए?</a>
   <% } %>
 
 </div>

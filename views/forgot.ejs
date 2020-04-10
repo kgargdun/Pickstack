@@ -1,10 +1,12 @@
 <%- include('partials/header') %>
-
-<%- include('partials/errors') %>
+<% if(ln==="en") { %>
 <div class="forgot">
 	<legend class="heading">Forgot Password</legend>
+	<%- include('partials/errors') %>
+
+	
 	<div class="row">
-		<div class="col-lg-6 mail" >
+		<div class="col-lg-6 mail">
 			<form action="/forgot" method="POST">
 				<div class="form-group">
 					<h4> Registered Email</h4>
@@ -16,7 +18,27 @@
 			</form>
 		</div>
 	</div>
-
 </div>
+<%  } else {   %>
+	<div class="forgot">
+		<legend class="heading" ln="hi">पासवर्ड भूल गए</legend>
+		<%- include('partials/errors') %>
+
+		<div class="row">
+			<div class="col-lg-6 mail">
+				<form action="/forgot" method="POST">
+					<div class="form-group">
+						<h4 ln="hi"> 
+							पंजीकृत ईमेल</h4>
+						<input type="email" name="email" autofocus class="form-control">
+					</div>
+					<div class="form-group">
+						<input ln="hi" type="submit" class="btn btn-primary" value="ईमेल रीसेट करेंई">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% } %> 
 
 <%- include('partials/footer') %>
