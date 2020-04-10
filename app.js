@@ -270,9 +270,7 @@ app.get("/logout", function (req, res) {
 
 
 
-app.listen(3000, function () {
-    console.log("Listening at port 3000");
-})
+
 
 
 let gfs;
@@ -505,4 +503,10 @@ app.get("/activity", function (req, res) {
 app.get("/about", function (req, res) {
 
     res.render("about", { ln });
+})
+
+
+
+app.listen(3000 || process.env.PORT, function () {
+    console.log("Listening at port 3000");
 })
