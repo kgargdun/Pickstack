@@ -16,6 +16,10 @@ const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
 const nodemailer = require("nodemailer");
 var flash = require('connect-flash');
+const cool = require('cool-ascii-faces');
+const PORT = process.env.PORT || 5000;
+
+
 
 errors = [];
 msgs = [];
@@ -505,8 +509,7 @@ app.get("/about", function (req, res) {
     res.render("about", { ln });
 })
 
+app.get('/cool', (req, res) => res.send(cool()));
 
 
-app.listen(3000 || process.env.PORT, function () {
-    console.log("Listening at port 3000");
-})
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
